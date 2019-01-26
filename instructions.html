@@ -5,17 +5,114 @@
 	<meta name=viewport content="width=device-width, initial-scale=1, minimum-scale=1 maximum-scale=1">
 	<meta name="theme-color" content="#000" />
 	<title>Country Road</title>
-	<link rel="stylesheet" href="style.css">
-	<link rel="shortcut icon" href="favicon.ico">
-	<script src="Core/Utils.js"></script>
-	<script src="Core/Drawable.js"></script>
-	<script src="Player.js"></script>
-	<script src="Level/Level.js"></script>
-	<script src="Game.js"></script>
-	<script src="script.js"></script>
+	
 </head>
 
 <body>
-	<canvas id="canvas" />
+    <!-- "back button" -->
+    <button onclick="toMenu()" class = "menu">
+        <svg width="100" height="100"> 
+            <circle cx="50" cy="50" r="50"/>
+            <rect x="50" y="20" width="30" height="50" fill="white" />
+            <polygon points="20,30 49,20 49,70 20,80 " fill="white"/>
+        </svg>
+    </button>
+    
+    <div>
+        <!-- arrow -->
+        <svg width="100" height="100">
+            <rect x="10" y="30" width="40" height="40"/>
+            <polygon points="50,10 50,90 90,50" />
+        </svg>
+
+        <!-- PDF print button -->
+        <button>
+            <svg width="100" height="100"> 
+                 <circle cx="50" cy="50" r="50"/>
+                 <rect x="25" y="20" width="50" height="60" fill="white" />
+                 <rect x="35" y="35" width="30" height="7" />
+                 <rect x="35" y="50" width="30" height="7" />
+                 <rect x="35" y="65" width="30" height="7" />
+            </svg>
+        </button>
+
+        <!-- arrow -->
+        <svg width="100" height="100">
+            <rect x="10" y="30" width="40" height="40"/>
+            <polygon points="50,10 50,90 90,50" />
+        </svg>
+
+         <!-- printer -->
+        <button>
+            <svg width="100" height="100">
+                <circle cx="50" cy="50" r="50"/>
+                <rect x="20" y="50" width="60" height="30" fill="white" />
+                <rect x="30" y="10" width="40" height="60" />
+                <rect x="31" y="11" width="38" height="58" fill="white"/>
+
+                <rect x="35" y="20" width="30" height="5" />
+                <rect x="35" y="35" width="30" height="5" />
+                <rect x="35" y="50" width="30" height="5" />
+            </svg>
+        </button>
+
+        <!-- arrow -->
+        <svg width="100" height="100">
+            <rect x="10" y="30" width="40" height="40"/>
+            <polygon points="50,10 50,90 90,50" />
+        </svg>
+
+        <!-- play button -->
+        <button class = "black">
+            <svg width="300" height="100">
+                <!-- "x1,y1 x2,y2 x3,y3" -->
+                <polygon points="110,10 110,90 190,50" fill="white"/>
+            </svg>
+        </button>
+    </div>
+    
+     <script>
+        function toMenu() 
+        { 
+            location.href="index.html"        
+        }
+       
+    </script>
+    
+    <style>
+        
+        
+        button, button:active
+        {
+            background-color: transparent;
+            border: none;
+            outline: none;
+            margin: 10px;
+        }
+        
+        button.black
+        {
+            background-color: black;
+            border: none;
+            outline: none;
+        }
+        
+        button.menu
+        {
+            position: absolute;
+            left: 30px;
+            bottom: 30px;
+        }
+        
+        body
+        {
+            width: 100vw;
+            height: 100vh;
+
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }   
+    </style>
 </body>
 </html>
