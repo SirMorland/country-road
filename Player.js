@@ -1,8 +1,8 @@
 class Player extends Circle
 {
-	constructor(position)
+	constructor(x, y)
 	{
-		super(null, position, 0.5, "#fff");
+		super(null, new Position(x,y), 0.5, "#fff");
 		this.dead = false;
 	}
 	
@@ -23,6 +23,13 @@ class Player extends Circle
 					}
 				}
 			});
+			
+			if(this.position.x < 0.5 || this.position.y < 0.5 ||
+			   this.position.x > game.width / game.level.size - 0.5 ||
+			   this.position.y > game.height / game.level.size - 0.5)
+			{
+				game.level = new Level();
+			}
 		}
 	}
 	
@@ -34,10 +41,10 @@ class Player extends Circle
 	electrify()
 	{
 		this.dead = true;
-		canvas.setAttribute("style", "filter:invert(1);");
-		setTimeout(function(){canvas.setAttribute("style", "filter:invert(0);");}, 200);
-		setTimeout(function(){canvas.setAttribute("style", "filter:invert(1);");}, 400);
-		setTimeout(function(){canvas.setAttribute("style", "filter:invert(0);");}, 600);
+		canvas.style.filter = "invert(1)";
+		setTimeout(function(){canvas.style.filter = "invert(0)";}, 200);
+		setTimeout(function(){canvas.style.filter = "invert(1)";}, 400);
+		setTimeout(function(){canvas.style.filter = "invert(0)";}, 600);
 		setTimeout(function(){game.level.reload();}, 800);
 	}
 }

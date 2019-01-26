@@ -5,7 +5,7 @@ class Game
 		this.width = width;
 		this.height = height;
 		
-		this.level = new TestLevel();
+		this.level = new ParkingLot();
 	}
 	
 	update()
