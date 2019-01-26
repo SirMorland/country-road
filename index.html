@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<meta name=viewport content="width=device-width, initial-scale=1, minimum-scale=1 maximum-scale=1">
+	<meta name="theme-color" content="#000" />
+	<title>Country Road</title>
+	<link rel="stylesheet" href="style.css">
+	<link rel="shortcut icon" href="favicon.ico">
+</head>
+
+<body>
+    <!-- PDF print button -->
+    <button onclick="myFunction()" >
+        <svg width="100" height="100"> 
+             <circle cx="50" cy="50" r="50"/>
+             <rect x="25" y="20" width="50" height="60" fill="white" />
+             <rect x="35" y="35" width="30" height="7" />
+             <rect x="35" y="50" width="30" height="7" />
+             <rect x="35" y="65" width="30" height="7" />
+        </svg>
+    </button>
+    
+    <!-- play button -->
+	<button onclick="myFunction()" class = "black">
+        <svg width="300" height="100">
+            <!-- "x1,y1 x2,y2 x3,y3" -->
+            <polygon points="110,10 110,90 190,50" fill="white"/>
+        </svg>
+    </button>
+    
+    <!-- instructions button -->
+    <button onclick="myFunction()" class = "black">
+        <svg width="300" height="100">
+            <circle cx="150" cy="50" r="40" fill="white"/>
+            <circle cx="150" cy="28" r="11" />
+            <rect x="140" y="42" width="20" height="40" />
+        </svg>
+        
+    </button>
+    
+    
+    <script>
+        function myFunction() 
+        {
+        document.getElementById("demo").innerHTML = "Hello World";
+        }
+    </script>
+    
+    <style>
+        button, button:active
+        {
+            background-color: transparent;
+            border: none;
+            outline: none;
+        }
+        button.black
+        {
+            background-color: black;
+            border: none;
+            outline: none;
+        }
+    </style>
+</body>
+</html>
