@@ -5,13 +5,12 @@
 	<meta name=viewport content="width=device-width, initial-scale=1, minimum-scale=1 maximum-scale=1">
 	<meta name="theme-color" content="#000" />
 	<title>Country Road</title>
-	<link rel="stylesheet" href="style.css">
 	<link rel="shortcut icon" href="favicon.ico">
 </head>
 
 <body>
     <!-- PDF print button -->
-    <button onclick="myFunction()" >
+    <button onclick="myFunction()" class="printBtn" >
         <svg width="100" height="100"> 
              <circle cx="50" cy="50" r="50"/>
              <rect x="25" y="20" width="50" height="60" fill="white" />
@@ -21,24 +20,47 @@
         </svg>
     </button>
     
-    <!-- play button -->
-	<button onclick="myFunction()" class = "black">
-        <svg width="300" height="100">
-            <!-- "x1,y1 x2,y2 x3,y3" -->
-            <polygon points="110,10 110,90 190,50" fill="white"/>
-        </svg>
-    </button>
-    
-    <!-- instructions button -->
-    <button onclick="myFunction()" class = "black">
-        <svg width="300" height="100">
-            <circle cx="150" cy="50" r="40" fill="white"/>
-            <circle cx="150" cy="28" r="11" />
-            <rect x="140" y="42" width="20" height="40" />
+    <div class="rectButton">
+        <!-- Game Logo CR -->
+        <svg width="300" height="200" class="logo">
+            <!-- "C" -->
+            <circle cx="80" cy="100" r="60" />
+            <circle cx="80" cy="100" r="30" fill="white"/>
+            <rect x="100" y="85" width="50" height="30" fill="white" />   
+            
+            <!-- "R" -->
+            <rect x="160" y="40" width="30" height="120" />
+            <rect x="160" y="40" width="80" height="80" />
+            <circle cx="240" cy="80" r="40" />
+            <rect x="220" y="110" width="30" height="30" />
+            <rect x="240" y="130" width="30" height="30" />
+            
+            <rect x="190" y="70" width="50" height="20" fill="white" />
+            <circle cx="240" cy="80" r="10" fill="white"/>
+               
+              
         </svg>
         
-    </button>
+            
     
+        <!-- play button -->
+        <button onclick="myFunction()" class = "black">
+            <svg width="300" height="100">
+                <!-- "x1,y1 x2,y2 x3,y3" -->
+                <polygon points="110,10 110,90 190,50" fill="white"/>
+            </svg>
+        </button>
+
+        <!-- instructions button -->
+        <button onclick="myFunction()" class = "black">
+            <svg width="300" height="100">
+                <circle cx="150" cy="50" r="40" fill="white"/>
+                <circle cx="150" cy="28" r="11" />
+                <rect x="140" y="42" width="20" height="40" />
+            </svg>
+
+        </button>
+    </div>
     
     <script>
         function myFunction() 
@@ -48,18 +70,51 @@
     </script>
     
     <style>
+        
+        
         button, button:active
         {
             background-color: transparent;
             border: none;
             outline: none;
+            display: block;
+            margin: 10px;
         }
+        
         button.black
         {
             background-color: black;
             border: none;
             outline: none;
         }
+        
+        button.printBtn
+        {
+            position: absolute;
+            right: 30px;
+            top: 30px;
+        }
+        
+        div.rectButton
+        {   
+            position: relative;
+            align-content: center;
+        }
+       
+        div.logo
+        {
+            align-content: center;
+            align-self: center;
+        }
+        body
+        {
+            width: 100vw;
+            height: 100vh;
+
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }   
     </style>
 </body>
 </html>
