@@ -5,7 +5,7 @@ class Game
 		this.width = width;
 		this.height = height;
 		
-		this.level = new Level(64);
+		this.level = new Level(32);
 	}
 	
 	update()
