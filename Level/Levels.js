@@ -123,7 +123,7 @@ class Alleyway extends Level
 		this.add(new Player(6, 16));
 		
 		//Add goal.
-		this.add(new Goal(26, 16, Level));
+		this.add(new Goal(26, 16, LabLvl2));
 		
 		//Add hazards.
 		//Touching these kills player and level starts from beginning.
@@ -140,5 +140,89 @@ class Alleyway extends Level
 		this.add(new ElectricFence(20, 14));
 		this.add(new ElectricFence(20, 15));
 		this.add(new ElectricFence(20, 16));
+	}
+}
+
+class LabLvl2 extends Level
+{
+	initialize()
+	{
+		//Set level size
+		this.setSize(64);
+		
+		//Add borders between given points
+		this.addBorders([
+			[0,0], [63,0], [63,63], [0,63]
+		]);
+		
+		//Add player.
+		this.add(new Player(4, 4));
+		
+		//Add goal.
+		this.add(new Goal(36, 28, Level));
+		
+        //Add Fences.
+        //These walls restrict your movement
+        var i;
+        //Vertical
+        for (i = 1; i < 56; i++) 
+        {
+            this.add(new WoodenFence(8, i));
+        } 
+        for (i = 16; i < 40; i++) 
+        {
+            this.add(new WoodenFence(24, i));
+        } 
+        for (i = 24; i < 40; i++) 
+        {
+            this.add(new WoodenFence(40, i));
+        } 
+        for (i = 8; i < 56; i++) 
+        {
+            this.add(new WoodenFence(56, i));
+        } 
+        //Horizontal
+        for (i = 16; i < 56; i++) 
+        {
+            this.add(new WoodenFence(i, 8));
+        } 
+        for (i = 32; i < 40; i++) 
+        {
+            this.add(new WoodenFence(i, 24));
+        } 
+        for (i = 16; i < 48; i++) 
+        {
+            this.add(new WoodenFence(i, 48));
+        } 
+        
+		//Add hazards.
+		//Touching these kills player and level starts from beginning.
+		//Vertical
+        for (i = 8; i < 48; i++) 
+        {
+            this.add(new ElectricFence(16, i));
+        } 
+        for (i = 24; i < 32; i++) 
+        {
+            this.add(new ElectricFence(32, i));
+        } 
+        for (i = 16; i < 48; i++) 
+        {
+            this.add(new ElectricFence(48, i));
+        } 
+        //Horizontal
+        for (i = 24; i < 48; i++) 
+        {
+            this.add(new ElectricFence(i, 16));
+        } 
+        for (i = 24; i < 40; i++) 
+        {
+            this.add(new ElectricFence(i, 40));
+        } 
+        for (i = 8; i < 56; i++) 
+        {
+            this.add(new ElectricFence(i, 56));
+        } 
+		
 	}
 }
