@@ -83,8 +83,8 @@ class Rectangle extends Drawable
 		ctx.beginPath();
 		ctx.fillStyle = this.color;
         ctx.fillRect(
-			(this.position.x - this.width / 2) * size,
-			(this.position.y - this.height / 2) * size,
+			this.position.x * size,
+			this.position.y * size,
 			this.width * size,
 			this.height * size
 		);
@@ -93,15 +93,18 @@ class Rectangle extends Drawable
 	
 	collides(drawable)
 	{
-		var deltaX = drawable.position.x - Math.max(this.position.x - this.width / 2, Math.min(drawable.position.x, this.position.x + this.width / 2));
-		var deltaY = drawable.position.y - Math.max(this.position.y - this.height / 2, Math.min(drawable.position.y, this.position.y + this.height / 2));
+		var deltaX = drawable.position.x - Math.max(this.position.x, Math.min(drawable.position.x, this.position.x + this.width));
+		var deltaY = drawable.position.y - Math.max(this.position.y, Math.min(drawable.position.y, this.position.y + this.height));
 		
 		var deltaSquared = deltaX * deltaX + deltaY * deltaY;
 		var radiusSquared = drawable.radius * drawable.radius;
 		var collides = deltaSquared < radiusSquared;
 		
 		if(collides) {
-			drawable.position.lerp(this.position, Math.sqrt(deltaSquared) - Math.sqrt(radiusSquared));
+			drawable.position.lerp(
+				new Position(this.position.x + this.width / 2, this.position.y + this.height / 2),
+				Math.sqrt(deltaSquared) - Math.sqrt(radiusSquared)
+			);
 		}
 		
 		return collides;

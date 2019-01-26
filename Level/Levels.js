@@ -6,27 +6,29 @@ class ParkingLot extends Level
 		this.setSize(16);
 		
 		//Add borders
-		this.add(new WoodenFence(1, 1));
-		this.add(new WoodenFence(2, 1));
-		this.add(new WoodenFence(3, 1));
-		this.add(new WoodenFence(4, 1));
-		this.add(new WoodenFence(5, 1));
-		this.add(new WoodenFence(6, 1));
-		this.add(new WoodenFence(7, 1));
-		this.add(new WoodenFence(8, 1));
-		this.add(new WoodenFence(9, 1));
-		this.add(new WoodenFence(10, 1));
-		this.add(new WoodenFence(11, 1));
-		this.add(new WoodenFence(12, 1));
-		this.add(new WoodenFence(13, 1));
-		this.add(new WoodenFence(14, 1));
+		this.add(new WoodenFence(0, 0));
+		this.add(new WoodenFence(1, 0));
+		this.add(new WoodenFence(2, 0));
+		this.add(new WoodenFence(3, 0));
+		this.add(new WoodenFence(4, 0));
+		this.add(new WoodenFence(5, 0));
+		this.add(new WoodenFence(6, 0));
+		this.add(new WoodenFence(7, 0));
+		this.add(new WoodenFence(8, 0));
+		this.add(new WoodenFence(9, 0));
+		this.add(new WoodenFence(10, 0));
+		this.add(new WoodenFence(11, 0));
+		this.add(new WoodenFence(12, 0));
+		this.add(new WoodenFence(13, 0));
+		this.add(new WoodenFence(14, 0));
+		this.add(new WoodenFence(15, 0));
 		this.add(new WoodenFence(15, 1));
 		this.add(new WoodenFence(15, 2));
 		this.add(new WoodenFence(15, 3));
 		this.add(new WoodenFence(15, 4));
 		this.add(new WoodenFence(15, 5));
 		this.add(new WoodenFence(15, 6));
-		this.add(new WoodenFence(15, 7));
+		this.add(new woodenFence(15, 7));
 		this.add(new woodenFence(15, 8));
 		this.add(new WoodenFence(15, 9));
 		this.add(new WoodenFence(15, 10));
@@ -49,19 +51,21 @@ class ParkingLot extends Level
 		this.add(new WoodenFence(3, 15));
 		this.add(new WoodenFence(2, 15));
 		this.add(new WoodenFence(1, 15));
-		this.add(new WoodenFence(1, 14));
-		this.add(new WoodenFence(1, 13));
-		this.add(new WoodenFence(1, 12));
-		this.add(new WoodenFence(1, 11));
-		this.add(new WoodenFence(1, 10));
-		this.add(new WoodenFence(1, 9));
-		this.add(new WoodenFence(1, 8));
-		this.add(new WoodenFence(1, 7));
-		this.add(new WoodenFence(1, 6));
-		this.add(new WoodenFence(1, 5));
-		this.add(new WoodenFence(1, 4));
-		this.add(new WoodenFence(1, 3));
-		this.add(new WoodenFence(1, 2));
+		this.add(new WoodenFence(0, 15));
+		this.add(new WoodenFence(0, 14));
+		this.add(new WoodenFence(0, 13));
+		this.add(new WoodenFence(0, 12));
+		this.add(new WoodenFence(0, 11));
+		this.add(new WoodenFence(0, 10));
+		this.add(new WoodenFence(0, 9));
+		this.add(new WoodenFence(0, 8));
+		this.add(new WoodenFence(0, 7));
+		this.add(new WoodenFence(0, 6));
+		this.add(new WoodenFence(0, 5));
+		this.add(new WoodenFence(0, 4));
+		this.add(new WoodenFence(0, 3));
+		this.add(new WoodenFence(0, 2));
+		this.add(new WoodenFence(0, 1));
 		
 		//Add player.
 		//Player moves towards mouse position.
@@ -82,7 +86,7 @@ class Driveway extends Level
 		
 		//Add borders between given points
 		this.addBorders([
-			[1,1], [1,15], [15,15], [15,1]
+			[0,0], [0,15], [15,15], [15,0]
 		]);
 		
 		//Add player.
@@ -92,9 +96,14 @@ class Driveway extends Level
 		this.add(new Goal(13, 8, Alleyway));
 		
 		//Add obstacles
-		this.add(new WoodenFence(8, 7));
+		this.add(new WoodenFence(8, 4));
+		this.add(new WoodenFence(8, 5));
+		this.add(new WoodenFence(7, 6));
+		this.add(new WoodenFence(7, 7));
 		this.add(new WoodenFence(8, 8));
 		this.add(new WoodenFence(8, 9));
+		this.add(new WoodenFence(7, 10));
+		this.add(new WoodenFence(7, 11));
 	}
 }
 
@@ -107,7 +116,7 @@ class Alleyway extends Level
 		
 		//Add borders between given points
 		this.addBorders([
-			[1,11], [1,21], [31,21], [31,11]
+			[0,10], [0,21], [31,21], [31,10]
 		]);
 		
 		//Add player.
@@ -118,18 +127,18 @@ class Alleyway extends Level
 		
 		//Add hazards.
 		//Touching these kills player and level starts from beginning.
-		this.add(new ElectricFence(11, 16));
 		this.add(new ElectricFence(11, 15));
+		this.add(new ElectricFence(11, 16));
 		this.add(new ElectricFence(11, 17));
 		this.add(new ElectricFence(11, 18));
 		this.add(new ElectricFence(11, 19));
 		this.add(new ElectricFence(11, 20));
 		
-		this.add(new ElectricFence(21, 12));
-		this.add(new ElectricFence(21, 13));
-		this.add(new ElectricFence(21, 14));
-		this.add(new ElectricFence(21, 15));
-		this.add(new ElectricFence(21, 16));
-		this.add(new ElectricFence(21, 17));
+		this.add(new ElectricFence(20, 11));
+		this.add(new ElectricFence(20, 12));
+		this.add(new ElectricFence(20, 13));
+		this.add(new ElectricFence(20, 14));
+		this.add(new ElectricFence(20, 15));
+		this.add(new ElectricFence(20, 16));
 	}
 }

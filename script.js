@@ -16,11 +16,11 @@ window.onload = function() {
 	game = new Game(size, size);
 	requestAnimationFrame(draw);
 
-	window.onmousedown = function(event) {
+	canvas.onmousedown = function(event) {
 		mousePos = new Position(event.offsetX / game.level.size, event.offsetY / game.level.size);
 		pressed = true;
 	}
-	window.onmousemove = function(event) {
+	canvas.onmousemove = function(event) {
 		if(pressed) mousePos = new Position(event.offsetX / game.level.size, event.offsetY / game.level.size);
 	}
 	window.onmouseup = function(event) {
@@ -28,12 +28,12 @@ window.onload = function() {
 		pressed = false;
 	}
 
-	window.ontouchstart = function(event) {
+	canvas.ontouchstart = function(event) {
 		event.preventDefault();
 		mousePos = new Position((event.touches[0].clientX - canvas.offsetLeft) / game.level.size, (event.touches[0].clientY - canvas.offsetTop) / game.level.size);
 		pressed = true;
 	}
-	window.ontouchmove = function(event) {
+	canvas.ontouchmove = function(event) {
 		event.preventDefault();
 		if(pressed) mousePos = new Position((event.touches[0].clientX - canvas.offsetLeft) / game.level.size, (event.touches[0].clientY - canvas.offsetTop) / game.level.size);
 	}
