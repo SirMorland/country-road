@@ -22,7 +22,7 @@ class Level
 	
 	draw()
 	{
-		ctx.fillStyle = "#333";
+		ctx.fillStyle = "#000";
 		ctx.fillRect(0, 0, game.width, game.height);
 		
 		this.elements.forEach(function(element) {

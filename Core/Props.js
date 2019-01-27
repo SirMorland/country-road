@@ -44,7 +44,10 @@ class Goal extends Triangle
 		var radius = this.radius + drawable.radius;
 		var collides = distance < radius;
 		
-		if(collides) game.level = new this.nextLevel();
+		if(collides) {
+			bgm.playbackRate += 0.1;
+			game.level = new this.nextLevel();
+		}
 		
 		return collides;
 	}
@@ -109,12 +112,19 @@ class LineH extends Rectangle
 	
 }
 
-
 class Mine extends Circle
 {
 	constructor(x, y)
 	{
-		super(null, new Position(x,y), 0.25, "#000");
+		super(null, new Position(x,y), 0.25, "#fff");
+		this.tags = ["collidable", "hazard"];
+	}
+}
+class HiddenMine extends Circle
+{
+	constructor(x, y)
+	{
+		super(null, new Position(x,y), 0.25, "#0000");
 		this.tags = ["collidable", "hazard"];
 	}
 }

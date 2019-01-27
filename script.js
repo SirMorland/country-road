@@ -3,6 +3,7 @@ var ctx;
 var game;
 var mousePos;
 var pressed;
+var bgm;
 
 window.onload = function() {
 	canvas = document.getElementById("canvas");
@@ -15,10 +16,14 @@ window.onload = function() {
 
 	game = new Game(size, size);
 	requestAnimationFrame(draw);
+	
+	bgm = new Audio("way-home.wav");
+	bgm.onended = function() { bgm.play(); };
 
 	canvas.onmousedown = function(event) {
 		mousePos = new Position(event.offsetX / game.level.size, event.offsetY / game.level.size);
 		pressed = true;
+		bgm.play();
 	}
 	canvas.onmousemove = function(event) {
 		if(pressed) mousePos = new Position(event.offsetX / game.level.size, event.offsetY / game.level.size);

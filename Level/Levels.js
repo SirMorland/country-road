@@ -217,7 +217,7 @@ class Paddock extends Level
 		]);
 		
 		this.add(new Player(2, 8));
-		this.add(new Goal(14, 8, LabLvl2));
+		this.add(new Goal(14, 8, Holes));
 		
 		//For-loop iterates numbers from 1 to 11
 		//and adds hazards
@@ -285,14 +285,54 @@ class Minefield extends Level
 		]);
 		
 		this.add(new Player(3, 8));
-		this.add(new Goal(13, 8, LabLvl2));
+		this.add(new Goal(13, 8, River));
 		
+		var a = 0;
 		for(var x = 2; x < 15; x += 3) {
 			for(var y = 2; y < 15; y += 3) {
 				//Mines are small circle hazards.
 				//They kill people.
-				this.add(new Mine(x, y));
+				if(a % 2 == 0) this.add(new Mine(x, y));
+				else this.add(new HiddenMine(x, y));
+				
+				a++
 			}
+		}
+	}
+}
+
+class River extends Level
+{
+	initialize()
+	{
+		this.setSize(32);
+		
+		this.addBorders([
+			[0,0], [0,31], [31,31], [31,0]
+		]);
+		
+		this.add(new Player(3, 16));
+		this.add(new Goal(29, 16, LabLvl2));
+		
+		this.mines = [];
+		var a = 0;
+		for(var i = 2; i < 31; i += 2) {
+			if(a % 2 == 0) var mine = new Mine(i, i);
+			else var mine = new HiddenMine(i, i);
+			a++;
+			
+			this.mines.push(mine);
+			this.add(mine);
+		}
+	}
+	
+	//Update is run every frame
+	update()
+	{
+		super.update();
+		
+		for(var i = 0; i < this.mines.length; i++) {
+			this.mines[i].position.y = (this.mines[i].position.y + 0.2) % 32;
 		}
 	}
 }
@@ -308,7 +348,7 @@ class LabLvl2 extends Level
 		]);
 		
 		this.add(new Player(4, 4));
-		this.add(new Goal(36, 28, Level));
+		this.add(new Goal(36, 28, Home));
 		
         var i;
         //Vertical

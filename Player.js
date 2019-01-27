@@ -20,7 +20,7 @@ class Player extends Circle
 			   this.position.x > game.width / game.level.size - 0.5 ||
 			   this.position.y > game.height / game.level.size - 0.5)
 			{
-				game.level = new Level();
+				game.level = new Pepperoni();
 			}
 
 			game.level.elements.forEach(function(element) {
