@@ -11,7 +11,6 @@ class Level
 	
 	initialize()
 	{
-		this.setSize(32);
 	}
 	
 	update()
@@ -23,7 +22,7 @@ class Level
 	
 	draw()
 	{
-		ctx.fillStyle = "#000";
+		ctx.fillStyle = "#333";
 		ctx.fillRect(0, 0, game.width, game.height);
 		
 		this.elements.forEach(function(element) {

@@ -24,7 +24,6 @@ window.onload = function() {
 		if(pressed) mousePos = new Position(event.offsetX / game.level.size, event.offsetY / game.level.size);
 	}
 	window.onmouseup = function(event) {
-		mousePos = null;
 		pressed = false;
 	}
 
@@ -38,7 +37,6 @@ window.onload = function() {
 		if(pressed) mousePos = new Position((event.touches[0].clientX - canvas.offsetLeft) / game.level.size, (event.touches[0].clientY - canvas.offsetTop) / game.level.size);
 	}
 	window.ontouchend = function(event) {
-		mousePos = null;
 		pressed = false;
 	}
 };

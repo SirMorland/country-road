@@ -15,6 +15,13 @@ class Player extends Circle
 			}
 
 			var player = this;
+			
+			if(this.position.x < 0.5 || this.position.y < 0.5 ||
+			   this.position.x > game.width / game.level.size - 0.5 ||
+			   this.position.y > game.height / game.level.size - 0.5)
+			{
+				game.level = new Level();
+			}
 
 			game.level.elements.forEach(function(element) {
 				if(element.tags.includes("collidable")) {
@@ -23,13 +30,6 @@ class Player extends Circle
 					}
 				}
 			});
-			
-			if(this.position.x < 0.5 || this.position.y < 0.5 ||
-			   this.position.x > game.width / game.level.size - 0.5 ||
-			   this.position.y > game.height / game.level.size - 0.5)
-			{
-				game.level = new Level();
-			}
 		}
 	}
 	
@@ -40,6 +40,8 @@ class Player extends Circle
 	
 	electrify()
 	{
+		mousePos = null;
+		pressed = false;
 		this.dead = true;
 		canvas.style.filter = "invert(1)";
 		setTimeout(function(){canvas.style.filter = "invert(0)";}, 200);

@@ -68,7 +68,7 @@ class ParkingLot extends Level
 		this.add(new WoodenFence(0, 1));
 		
 		//Add player.
-		//Player moves towards mouse position.
+		//Player moves to mouse click position.
 		this.add(new Player(3, 8));
 		
 		//Add goal.
@@ -240,6 +240,60 @@ class Paddock extends Level
 			this.add(new ElectricFence(12, i));
 		}
 		this.add(new WoodenFence(12,3));
+	}
+}
+
+class Holes extends Level
+{
+	initialize()
+	{
+		this.setSize(16);
+		
+		this.addBorders([
+			[0,0], [0,15], [15,15], [15,0]
+		]);
+		
+		this.add(new Player(3, 8));
+		this.add(new Goal(13, 8, Minefield));
+		
+		for(var i = 1; i < 3; i++) {
+			this.add(new ElectricFence(5, i));
+		}
+		for(var i = 5; i < 11; i++) {
+			this.add(new ElectricFence(5, i));
+		}
+		for(var i = 13; i < 15; i++) {
+			this.add(new ElectricFence(5, i));
+		}
+		for(var i = 1; i < 7; i++) {
+			this.add(new ElectricFence(10, i));
+		}
+		for(var i = 9; i < 15; i++) {
+			this.add(new ElectricFence(10, i));
+		}
+	}
+}
+
+class Minefield extends Level
+{
+	initialize()
+	{
+		this.setSize(16);
+		
+		this.addBorders([
+			[0,0], [0,15], [15,15], [15,0]
+		]);
+		
+		this.add(new Player(3, 8));
+		this.add(new Goal(13, 8, LabLvl2));
+		
+		for(var x = 2; x < 15; x += 3) {
+			for(var y = 2; y < 15; y += 3) {
+				//Mines are small circle hazards.
+				//They kill people.
+				this.add(new Mine(x, y));
+			}
+		}
 	}
 }
 

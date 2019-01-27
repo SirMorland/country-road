@@ -49,3 +49,13 @@ class Goal extends Triangle
 		return collides;
 	}
 }
+
+class Mine extends Circle
+{
+	
+	constructor(x, y)
+	{
+		super(null, new Position(x,y), 0.25, "#000");
+		this.tags = ["collidable", "hazard"];
+	}
+}
