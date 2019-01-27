@@ -36,6 +36,7 @@ window.onload = function() {
 		event.preventDefault();
 		mousePos = new Position((event.touches[0].clientX - canvas.offsetLeft) / game.level.size, (event.touches[0].clientY - canvas.offsetTop) / game.level.size);
 		pressed = true;
+		bgm.play();
 	}
 	canvas.ontouchmove = function(event) {
 		event.preventDefault();
