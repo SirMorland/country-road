@@ -81,7 +81,6 @@ class Driveway extends Level
 {
 	initialize()
 	{
-		//Set level size
 		this.setSize(16);
 		
 		//Add borders between given points
@@ -93,7 +92,7 @@ class Driveway extends Level
 		this.add(new Player(3, 8));
 		
 		//Add goal.
-		this.add(new Goal(13, 8, Alleyway));
+		this.add(new Goal(13, 8, MaenderingRoad));
 		
 		//Add obstacles
 		this.add(new WoodenFence(8, 4));
@@ -107,23 +106,87 @@ class Driveway extends Level
 	}
 }
 
+class MaenderingRoad extends Level
+{	
+	initialize()
+	{
+		this.setSize(16);
+		
+		this.addBorders([
+			[0,0], [0,15], [15,15], [15,0]
+		]);
+		
+		this.add(new Player(2, 2));
+		this.add(new Goal(14, 14, Alleyway));
+		
+		this.add(new WoodenFence(1, 3));
+		this.add(new WoodenFence(2, 3));
+		this.add(new WoodenFence(3, 3));
+		this.add(new WoodenFence(4, 3));
+		this.add(new WoodenFence(5, 3));
+		this.add(new WoodenFence(6, 3));
+		this.add(new WoodenFence(6, 4));
+		this.add(new WoodenFence(6, 5));
+		this.add(new WoodenFence(6, 6));
+		
+		this.add(new WoodenFence(9, 1));
+		this.add(new WoodenFence(9, 2));
+		this.add(new WoodenFence(9, 3));
+		this.add(new WoodenFence(9, 4));
+		this.add(new WoodenFence(9, 5));
+		this.add(new WoodenFence(9, 6));
+		this.add(new WoodenFence(9, 7));
+		this.add(new WoodenFence(9, 8));
+		this.add(new WoodenFence(9, 9));
+		this.add(new WoodenFence(8, 9));
+		this.add(new WoodenFence(7, 9));
+		this.add(new WoodenFence(6, 9));
+		this.add(new WoodenFence(5, 9));
+		this.add(new WoodenFence(4, 9));
+		this.add(new WoodenFence(3, 9));
+		this.add(new WoodenFence(3, 8));
+		this.add(new WoodenFence(3, 7));
+		this.add(new WoodenFence(3, 6));
+		
+		this.add(new WoodenFence(3, 10));
+		this.add(new WoodenFence(3, 11));
+		this.add(new WoodenFence(3, 12));
+		
+		this.add(new WoodenFence(6, 12));
+		this.add(new WoodenFence(6, 13));
+		this.add(new WoodenFence(6, 14));
+		
+		this.add(new WoodenFence(9, 10));
+		this.add(new WoodenFence(9, 11));
+		this.add(new WoodenFence(9, 12));
+		
+		this.add(new WoodenFence(12, 3));
+		this.add(new WoodenFence(12, 4));
+		this.add(new WoodenFence(12, 5));
+		this.add(new WoodenFence(12, 6));
+		this.add(new WoodenFence(12, 7));
+		this.add(new WoodenFence(12, 8));
+		this.add(new WoodenFence(12, 9));
+		this.add(new WoodenFence(12, 10));
+		this.add(new WoodenFence(12, 11));
+		this.add(new WoodenFence(12, 12));
+		this.add(new WoodenFence(12, 13));
+		this.add(new WoodenFence(12, 14));
+	}
+}
+
 class Alleyway extends Level
 {
 	initialize()
 	{
-		//Set level size
 		this.setSize(32);
 		
-		//Add borders between given points
 		this.addBorders([
 			[0,10], [0,21], [31,21], [31,10]
 		]);
 		
-		//Add player.
 		this.add(new Player(6, 16));
-		
-		//Add goal.
-		this.add(new Goal(26, 16, LabLvl2));
+		this.add(new Goal(26, 16, Paddock));
 		
 		//Add hazards.
 		//Touching these kills player and level starts from beginning.
@@ -140,6 +203,43 @@ class Alleyway extends Level
 		this.add(new ElectricFence(20, 14));
 		this.add(new ElectricFence(20, 15));
 		this.add(new ElectricFence(20, 16));
+	}
+}
+
+class Paddock extends Level
+{
+	initialize()
+	{
+		this.setSize(16);
+		
+		this.addBorders([
+			[0,0], [0,15], [15,15], [15,0]
+		]);
+		
+		this.add(new Player(2, 8));
+		this.add(new Goal(14, 8, LabLvl2));
+		
+		//For-loop iterates numbers from 1 to 11
+		//and adds hazards
+		for(var i = 1; i < 12; i++) {
+			this.add(new ElectricFence(3, i));
+		}
+		this.add(new WoodenFence(3,12));
+		
+		for(var i = 4; i < 15; i++) {
+			this.add(new ElectricFence(6, i));
+		}
+		this.add(new WoodenFence(6,3));
+		
+		for(var i = 1; i < 12; i++) {
+			this.add(new ElectricFence(9, i));
+		}
+		this.add(new WoodenFence(9,12));
+		
+		for(var i = 4; i < 15; i++) {
+			this.add(new ElectricFence(12, i));
+		}
+		this.add(new WoodenFence(12,3));
 	}
 }
 
@@ -223,6 +323,5 @@ class LabLvl2 extends Level
         {
             this.add(new ElectricFence(i, 56));
         } 
-		
 	}
 }
