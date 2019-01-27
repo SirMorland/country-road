@@ -423,6 +423,8 @@ class Home extends Level
 		
 		this.add(new Player(3, 8));
 		this.add(new House(13, 8));
+		this.add(new Text(8,4, "FINALLY"));
+		this.add(new Text(8,12, "HOME"));
 	}
 }
 
@@ -458,7 +460,8 @@ class Pepperoni extends Level
         this.add(new LineH(6,20));
         this.add(new LineV(16,10));
 		
-        this.add(new Player(15, 15));
+        this.add(new Player(16, 16));
 		this.add(new Goal(30, 30, Driveway));
+		this.add(new Text(16, 4, "SUBSCRIBE TO PEWDIEPIE"));
 	}
 }

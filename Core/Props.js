@@ -223,8 +223,26 @@ class House extends Drawable
 		var radiusSquared = drawable.radius * drawable.radius;
 		var collides = deltaSquared < radiusSquared;
 		
-		if(collides) console.log("Game Over");
+		if(collides) location.href="index.html";
 		
 		return collides;
+	}
+}
+
+class Text extends Drawable
+{
+	constructor(x, y, text)
+	{
+		super(null, new Position(x,y));
+		this.text = text;
+	}
+	
+	draw()
+	{
+		ctx.font = (2 * game.level.size) + "px sans-serif";
+		ctx.fillStyle = "#fff";
+		ctx.textAlign = "center";
+		ctx.textBaseline = "middle";
+		ctx.fillText(this.text, this.position.x * game.level.size, this.position.y * game.level.size);
 	}
 }
