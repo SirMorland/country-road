@@ -5,7 +5,7 @@ class Game
 		this.width = width;
 		this.height = height;
 		
-		this.level = new Minefield();
+		this.level = new Pepperoni();
 	}
 	
 	update()

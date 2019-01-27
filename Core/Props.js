@@ -50,6 +50,66 @@ class Goal extends Triangle
 	}
 }
 
+class Crust extends Drawable
+{
+    constructor(x, y)
+	{
+		super(null, new Position(x,y));
+	}
+    draw()
+	{
+        var size = game.level.size;
+		
+		ctx.beginPath();
+		ctx.fillStyle = "#e8b90c";
+        ctx.arc(this.position.x * size, this.position.y * size, 10 * size, 0, 2 * Math.PI);
+		ctx.fill();
+        
+        //Cheese
+        ctx.beginPath();
+		ctx.fillStyle = "#ebdf13";
+        ctx.arc(this.position.x * size, this.position.y * size, 8 * size , 0, 2 * Math.PI);
+		ctx.fill();	
+	}
+}
+
+class Salami extends Circle
+{
+	constructor(x, y)
+	{
+		super(null, new Position(x,y), 1, "#e32525");
+	}
+}
+
+class BellPepper extends Rectangle
+{
+	constructor(x,y)
+	{
+		super(null, new Position(x,y), 2, 1, "#5bb11f");
+	}
+}
+
+class LineV extends Rectangle
+{
+	constructor(x,y)
+	{
+		super(null, new Position(x,y), 0.1, 20, "#000");
+	}
+    
+	
+}
+
+class LineH extends Rectangle
+{
+	constructor(x,y)
+	{
+		super(null, new Position(x,y), 20, 0.1, "#000");
+	}
+    
+	
+}
+
+
 class Mine extends Circle
 {
 	constructor(x, y)

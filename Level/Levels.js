@@ -385,3 +385,40 @@ class Home extends Level
 		this.add(new House(13, 8));
 	}
 }
+
+class Pepperoni extends Level
+{	
+	initialize()
+	{
+		this.setSize(32);
+		
+		this.addBorders([
+			[0,0], [0,31], [31,31], [31,0]
+		]);
+		this.add(new Crust(16,20));
+        this.add(new Salami(9,20));
+        this.add(new Salami(12,16));
+        this.add(new Salami(16,14));
+        this.add(new Salami(18,16));
+        this.add(new Salami(15,19));
+        this.add(new Salami(13,21));
+        this.add(new Salami(12,24));
+        this.add(new Salami(16,22));
+        this.add(new Salami(20,20));
+        this.add(new Salami(18,25));
+        this.add(new BellPepper(9,22));
+        this.add(new BellPepper(11,18));
+        this.add(new BellPepper(12,14));
+        this.add(new BellPepper(14,16));
+        this.add(new BellPepper(15,25));
+        this.add(new BellPepper(17,18));
+        this.add(new BellPepper(18,13));
+        this.add(new BellPepper(20,17));
+        this.add(new BellPepper(20,22));
+        this.add(new LineH(6,20));
+        this.add(new LineV(16,10));
+		
+        this.add(new Player(15, 15));
+		this.add(new Goal(30, 30, Driveway));
+	}
+}
