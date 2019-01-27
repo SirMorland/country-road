@@ -12,7 +12,7 @@
 
 <body>
     <!-- PDF print button -->
-    <button onclick="myFunction()" class="printBtn" >
+    <button onclick="window.open('code.pdf', '_blank', 'fullscreen=yes'); return false;" class="printBtn" >
         <svg width="100" height="100"> 
              <circle cx="50" cy="50" r="50"/>
              <rect x="25" y="20" width="50" height="60" fill="white" />
@@ -68,10 +68,6 @@
         function toInst()
         {
             location.href="instructions.html"    
-        }
-        function toPDF()
-        {
-            location.href="code.pdf"    
         }
     </script>
     
