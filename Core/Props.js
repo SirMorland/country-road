@@ -52,10 +52,109 @@ class Goal extends Triangle
 
 class Mine extends Circle
 {
-	
 	constructor(x, y)
 	{
 		super(null, new Position(x,y), 0.25, "#000");
 		this.tags = ["collidable", "hazard"];
+	}
+}
+
+class House extends Drawable
+{
+	constructor(x,y)
+	{
+		super(null, new Position(x,y));
+		this.tags = ["collidable"];
+	}
+	
+	draw()
+	{
+		var size = game.level.size;
+		
+		ctx.beginPath();
+		ctx.fillStyle = "#fff";
+        ctx.fillRect(
+			(this.position.x - 1) * size,
+			(this.position.y - 1) * size,
+			2 * size,
+			2 * size
+		);
+		ctx.fill();
+		
+		ctx.beginPath();
+		ctx.fillStyle = "#fff";
+		ctx.moveTo((this.position.x - 1) * game.level.size, (this.position.y - 1) * game.level.size);
+		ctx.lineTo((this.position.x) * game.level.size, (this.position.y - 2) * game.level.size);
+		ctx.lineTo((this.position.x + 1) * game.level.size, (this.position.y - 1) * game.level.size);
+		ctx.fill();
+		
+		ctx.beginPath();
+		ctx.fillStyle = "#000";
+        ctx.fillRect(
+			(this.position.x - 0.8) * size,
+			(this.position.y + 0.2) * size,
+			0.4 * size,
+			0.8 * size
+		);
+		ctx.fill();
+		ctx.beginPath();
+		ctx.fillStyle = "#000";
+        ctx.fillRect(
+			(this.position.x - 0.2) * size,
+			(this.position.y + 0.2) * size,
+			0.4 * size,
+			0.4 * size
+		);
+		ctx.fill();
+		ctx.beginPath();
+		ctx.fillStyle = "#000";
+        ctx.fillRect(
+			(this.position.x + 0.4) * size,
+			(this.position.y + 0.2) * size,
+			0.4 * size,
+			0.4 * size
+		);
+		ctx.fill();
+		ctx.beginPath();
+		ctx.fillStyle = "#000";
+        ctx.fillRect(
+			(this.position.x - 0.8) * size,
+			(this.position.y - 0.8) * size,
+			0.4 * size,
+			0.4 * size
+		);
+		ctx.fill();
+		ctx.beginPath();
+		ctx.fillStyle = "#000";
+        ctx.fillRect(
+			(this.position.x - 0.2) * size,
+			(this.position.y - 0.8) * size,
+			0.4 * size,
+			0.4 * size
+		);
+		ctx.fill();
+		ctx.beginPath();
+		ctx.fillStyle = "#000";
+        ctx.fillRect(
+			(this.position.x + 0.4) * size,
+			(this.position.y - 0.8) * size,
+			0.4 * size,
+			0.4 * size
+		);
+		ctx.fill();
+	}
+	
+	collides(drawable)
+	{	
+		var deltaX = drawable.position.x - Math.max(this.position.x - 1, Math.min(drawable.position.x, this.position.x + 1));
+		var deltaY = drawable.position.y - Math.max(this.position.y - 1, Math.min(drawable.position.y, this.position.y + 1));
+		
+		var deltaSquared = deltaX * deltaX + deltaY * deltaY;
+		var radiusSquared = drawable.radius * drawable.radius;
+		var collides = deltaSquared < radiusSquared;
+		
+		if(collides) console.log("Game Over");
+		
+		return collides;
 	}
 }

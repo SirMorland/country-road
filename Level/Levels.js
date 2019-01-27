@@ -301,22 +301,15 @@ class LabLvl2 extends Level
 {
 	initialize()
 	{
-		//Set level size
 		this.setSize(64);
-		
-		//Add borders between given points
+
 		this.addBorders([
 			[0,0], [63,0], [63,63], [0,63]
 		]);
 		
-		//Add player.
 		this.add(new Player(4, 4));
-		
-		//Add goal.
 		this.add(new Goal(36, 28, Level));
 		
-        //Add Fences.
-        //These walls restrict your movement
         var i;
         //Vertical
         for (i = 1; i < 56; i++) 
@@ -348,9 +341,7 @@ class LabLvl2 extends Level
         {
             this.add(new WoodenFence(i, 48));
         } 
-        
-		//Add hazards.
-		//Touching these kills player and level starts from beginning.
+
 		//Vertical
         for (i = 8; i < 48; i++) 
         {
@@ -377,5 +368,20 @@ class LabLvl2 extends Level
         {
             this.add(new ElectricFence(i, 56));
         } 
+	}
+}
+
+class Home extends Level
+{	
+	initialize()
+	{
+		this.setSize(16);
+		
+		this.addBorders([
+			[0,0], [0,15], [15,15], [15,0]
+		]);
+		
+		this.add(new Player(3, 8));
+		this.add(new House(13, 8));
 	}
 }
