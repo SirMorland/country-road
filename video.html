@@ -5,10 +5,82 @@
 	<meta name=viewport content="width=device-width, initial-scale=1, minimum-scale=1 maximum-scale=1">
 	<meta name="theme-color" content="#000" />
 	<title>Country Road</title>
-	<link rel="shortcut icon" href="favicon.ico">
 </head>
 
 <body>
-   <video src="IntroVideo.avi"></video>
+    
+
+<div class="screen">
+    <!-- Intro Video -->
+    <iframe width="100%" height="100%" src="https://www.youtube.com/embed/3IM0t0-YxUI?controls=0&autoplay=1" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen="true"></iframe>
+    
+    <div class="buttons"> 
+    <!-- skip button -->
+        <button onclick="toIndex()">
+            <svg width="300" height="100">
+                <!-- "x1,y1 x2,y2 x3,y3" -->
+                <polygon points="110,50 190,90 190,10" fill="white"/>
+            </svg>
+        </button>
+    
+    
+        <!-- skip button -->
+        <button onclick="toGame()">
+            <svg width="300" height="100">
+                <!-- "x1,y1 x2,y2 x3,y3" -->
+                <polygon points="110,10 110,90 190,50" fill="white"/>
+            </svg>
+        </button>
+    </div>
+</div>
+    
+    
+<script>
+    function toGame() 
+    { 
+        location.href="game.html"
+    }
+    function toIndex()
+    {
+        location.href="index.html"    
+    }
+</script>
+
+<style>
+
+
+    button, button:active
+    {
+        background-color: black;
+        border: none;
+        outline: none;
+        margin: 10px;
+    }
+
+    div
+    {   
+        position: absolute;
+        align-content: top;
+    }
+    
+    div.screen
+    {   
+        width: 100vw;
+        height: 80vh;
+        position: absolute;
+        top: 0;
+    }
+
+   
+    body
+    {
+        width: 100vw;
+        height: 100vh;
+
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }   
+</style>
 </body>
 </html>
